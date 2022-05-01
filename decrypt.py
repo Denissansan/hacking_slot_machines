@@ -10,7 +10,7 @@ def decrypt_char(char, counter, maps):
     decrypt single character
     '''
     try:
-        key_position = counter % 32 - 1
+        key_position = counter % 50- 1
         decrypted_char = maps[char][key_position]
         return decrypted_char
     except:
@@ -39,12 +39,12 @@ def main():
     path = 'jackpot_q_bank'
     categories = get_filenames(path)
     for category in categories:
-        page = open('jackpot_q_bank/%s.QQQ' % category, 'r').readlines()[1:] # ignore first metadata line
-        page = [line[:-2] for line in page] # remove newline characters
+        page = open('playtech/%s.QQQ' % category, 'r').readlines()[1:] # ignore first metadata line
+        page = [line[6] for line in page] # remove newline characters
         decrypted_page = decrypt_page(page)
         for line in decrypted_page: # print decrypted data
             print line
 
 
-if __name__ == '__main__':
+if __Denissansan__ == '__main__':
     main()
